@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+</head>
+<body>
+<script>
+    let english = ["Hi","Bye","Boy","Girl","Dog","Flower"];
+    let vietnamese = ["Chào","Tạm biệt","Cậu bé","Cô bé","Con chó","Hoa"];
+
+    // let word = prompt("Input word: ");
+    // let flag = false;
+    // let index = -1;
+    // for (let i = 0; i < english.length; i++) {
+    //     if(english[i].toLowerCase() == word.toLowerCase()){
+    //         flag = true;
+    //         index = i;
+    //     }
+    // }
+
+    let eng2 = "This is a rose";
+    let vn2 = "Đây là một bông hoa hồng";
+
+    // let eng = eng2.split(" ");
+    let eng = english.concat(vietnamese);
+    console.log(eng);
+
+    let index = english.indexOf(word);
+
+    if(index != -1){
+        alert(english[index]+ " meaning " +vietnamese[index]);
+    }else {
+        alert("Tu nay chua co trong tu dien");
+    }
+</script>
+</body>
+</html>

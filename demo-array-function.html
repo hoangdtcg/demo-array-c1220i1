@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Of Array</title>
+</head>
+<body>
+<script>
+    let arr = [10,2,31,4,15];
+    function display() {
+        document.write(arr);
+    }
+
+
+    //Thêm
+    //Thêm vào cuối mảng
+    function addLast() {
+        let item = +prompt("Input number");
+        arr[arr.length] = item;
+    }
+    //Thêm đầu
+    function addFirst() {
+        let item = +prompt("Input number");
+        for (let i = 0; i < arr.length; i++) {
+            arr[arr.length-i] = arr[arr.length-i-1];
+            // arr[i+1] = arr[i];
+        }
+        arr[0] = item;
+    }
+
+    //Thêm vào vị trí bất kì
+    function addAny() {
+        let item = +prompt("Input item");
+        let index = +prompt("Input index");
+
+        // for (let i = index; i < arr.length; i++) {
+        //     arr[arr.length-i] = arr[arr.length-i+1];
+        //     // arr[i+1] = arr[i];
+        // }
+        for (let i = arr.length; i >= index ; i--) {
+            arr[i] = arr[i-1];
+        }
+
+        arr[index] = item;
+    }
+
+    // arr.splice(2,0,10,21,30);
+
+
+    //sắp xếp nổi bọt
+    function bubbleSort() {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length-1; j++) {
+                if(arr[j] > arr[j+1]){
+                    let temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+
+    //sắp xếp chèn
+    function insertSort() {
+        for (let i = 0; i < arr.length; i++) {
+            let min = arr[i];
+            for (let j = i; j < arr.length; j++) {
+                if(min < arr[j]){
+                    min = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = min;
+                }
+            }
+        }
+    }
+
+    // addAny();
+    // insertSort();
+    arr.sort(function (num1,num2) {
+        return num1 - num2;
+    });
+    display();
+</script>
+</body>
+</html>

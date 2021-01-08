@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Dictionary</title>
+</head>
+<body>
+<form>
+    <fieldset>
+        <legend>Add new word</legend>
+        <input type="text" required placeholder="New word" id="eng">
+        <input type="text" required placeholder="Meaning..." id="vn">
+        <button onclick="addWord()" type="submit">Add</button>
+    </fieldset>
+</form>
+
+<button onclick="searchWord()">Search</button>
+<script>
+    let english =[];
+    let vietnamese = [];
+    function addWord() {
+        let eng = document.getElementById('eng').value;
+        let vn = document.getElementById('vn').value;
+        english.push(eng);
+        vietnamese.push(vn);
+
+        localStorage.setItem('eng',JSON.stringify(english));
+        localStorage.setItem('vn',JSON.stringify(vietnamese));
+    }
+
+    function loadDict() {
+        if(localStorage.hasOwnProperty('eng')){
+            english = JSON.parse(localStorage.getItem('eng'));
+        }
+        if(localStorage.hasOwnProperty('vn')){
+            vietnamese = JSON.parse(localStorage.getItem('vn'));
+        }
+    }
+    loadDict();
+
+    function searchWord() {
+        let word = prompt("Input word: ");
+        let flag = false;
+        let index = -1;
+        for (let i = 0; i < english.length; i++) {
+            if(english[i].toLowerCase() == word.toLowerCase()){
+                flag = true;
+                index = i;
+                alert(vietnamese[i]);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
